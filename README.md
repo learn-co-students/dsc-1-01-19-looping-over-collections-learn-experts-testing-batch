@@ -27,7 +27,7 @@ print(zero_to_three[3])
 
 > Press shift + enter
 
-In the example above, we are sequentially accessing each index in the list and printing its value (the element). That works well enough, but if our list were 100 element long it would become extrememly tedious. And what if the length of our list were ***unkown***. Spooky, right? 
+In the example above, we are sequentially accessing each index in the list and printing its value (the element). That works well enough, but if our list was 100 elements long it would become extrememly tedious. And what if the length of our list was ***unkown***. Spooky, right? 
 
 In fact, it may very often be the case that we don't know the length of the collection we are working with. So, writing all this static code for each element becomes not only unmanageable, but impossible.
 
@@ -130,13 +130,21 @@ for index in list(range(0, len(countries))):
     print(cities[index]+",", countries[index])
 ```
 
+We can actually just use the `range` itself for iteration without even converting it to a list:
+
+
+```python
+for index in range(0, len(countries)):
+    print(cities[index]+",", countries[index])
+```
+
 And as we add or subtract countries, we will still be iterating through our list elements.
 
 
 ```python
 countries.append('Mexico')
 cities.append('Mexico City')
-for index in list(range(0, len(countries))):
+for index in range(0, len(countries)):
     print(cities[index]+",", countries[index])
 ```
 
@@ -171,7 +179,7 @@ for key, value in example_dictionary.items():
     print("this is the value:", value, "\n")
 ```
 
-So, we can see that the **dict_items** object groups the key values together in a way that we can iterate over them and access them. We can even use them to inform our program to operate on keys and values in a certain way. Such as, the last name is inexplicably in all caps. Let's look at how we can rectify that and title case the last name when we print out the full name of the `example_dictionary` object.
+So, we can see that the **dict_items** object groups respective key value pairs together in such a way that we can iterate over them and access them. We can even use them to inform our program to operate on keys and values in a certain way. For example, the value for `last_name` is inexplicably in all caps. Let's look at how we can rectify that and title case the last name when we print out the full name of the `example_dictionary` object.
 
 
 ```python
@@ -204,4 +212,4 @@ for ice_cream_flavor in ice_cream_flavors:
 
 ### Summary
 
-In this lesson, we learned how to use loops to iterate through a collection of elements. We started with iterating through a list of numbers, and performed the same operation on each number. Then we saw how we can loop through the numbers and have each number be used to access a successive element from a separate list, like `countries`.  We then saw that to ensure that our list of numbers matched the indices of a our other list, we had to use the expression, `for element in list(range(0, len(list)))`. Finally, we introduced a naming convention that is commonly used when naming the variable for our loops when iterating over a collection that is a list of common elements (i.e. `ice_cream_flavor` for a list of `ice_cream_flavors`).
+In this lesson, we learned how to use loops to iterate through a collection of elements. We started by iterating through a list of numbers, and performed the same operation on each number. Then we saw how we can loop through the numbers and have each number be used to access a successive element from a separate list, like `countries`.  We then saw that to ensure that our list of numbers matched the indices of a our other list, we had to use the expression, `for element in range(0, len(list_name))`. Finally, we introduced a naming convention that is commonly used in `for` loops when iterating over a collection that is a list of common elements (i.e. `ice_cream_flavor` for a list of `ice_cream_flavors`).
